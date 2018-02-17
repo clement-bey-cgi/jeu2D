@@ -1,0 +1,102 @@
+IHM ou GUI
+
+interface homme machine / graphical user interface. Très lié à la programmation évènementielle. 
+
+Les fenetre en java tournent autour de l'objet JFrame
+
+Deux biblitothèques pour les fenêtres : awt eet swing. Au début il n'y avait que awt, swing n'existait pas. Aujourd'hui on utilise des objets awt pour manipuler des objets swing de type composant (boutons zone de texte)...
+
+Les composants awt sont considéré comme lourds car gérés par le système exploitation. Les composants swing sont eux déssinés dans un conteneur et sont dis légers.
+
+Il est déconseillé de mélanger les deux technos. 
+
+Instancier une JFrame et la rendre visible :
+
+JFrame fenetre = new JFrame();
+fenetre.setVisible(true);
+
+METHODES UTILES
+
+setLocation(int x, int y) --> coin supérieur gauche 0 0 
+
+setResizable(false) --> empeche redimensionnement
+
+setAlwaysOnTop(true) --> garde au premier plan
+
+setUndecorated(true) --> enleve bouton de controle et bordure
+
+Une JFrame est découpée en plusieurs parties. du plus grand au plus petit
+
+- la fenetre
+- le RootPane le conteneur principal qui contient les autres composants
+- le LayeredPane qui forme juste un panneau composé du conteneur global et de la barre de menu 
+- MenuBar en orange la barre de menu quand il y en a une 
+- Content Pane : dans celui la on mettra nos composants
+- GlassPane : couche pour intercepter les actions de l'utilisateur
+
+la methode getContentPane() de la classe JFrame renvoie un ContentPane. Mais on va utiliser un autre composant le JPanel.
+
+REMARQUE : il existe d'autre type de fenetre : JWindow sans bordure non draggable, JDialog une fenetre non redimensionnable
+
+// OBJET JPANEL 
+
+JPanel, composant de type conteneur dont la vocation est d'accueillir d'autre objets de même type ou des objetsde type composant. 
+
+// GRAPHICS ET GRAPHICS 2D
+
+Le JPanel est un composa,t qui peut être filé au contentPane d'une JFrame
+
+myJFrame.setContentPane(myJpanel);
+
+la methode :
+
+public void paintComponent(Graphics g){
+	g.fillOval(20,20,75,75);
+	int x1 = this.getWidth()/4; // largeur du JPANEL / 4
+	int y1 = this.getHeight()/4; // hauteur du JPANEL / 4 
+	g.fillOval(x1, y1, x1*2, y1*2);
+	g.fillOval(x1/2,y1/2,x);
+}
+
+on a jamais a l'appeler, si on reduit la fenetre ou la redim, la methode paintComponent est appelée.
+
+g.drawOval --> sans le remplir
+
+g.drawRect
+g.fillRect
+
+g.drawLine(xDepart, yDepart,)
+
+ 
+g.setFont(font);
+g.setColor(Color.red);        
+g.drawString("Tiens ! Le Site du Zéro !", 10, 20);
+
+drawImage(Image img, int x, int y, Observer obs);
+
+// 
+- redaction manuel utilisateur + sfd
+
+- Conception + mise en place de l'environment dev / inté / livraison +  base de données + git + Gestion de projet
+
+- choisir la techno --> accord avec le client et ses contraintes materiel
+
+
+
+- developpement + test unitaire
+	- 
+
+- cahier de recette + test intégration 
+
+- livraison sur env prod 
+
+
+----------------------------------------------
+
+- On ne répercute pas sur notre chiffrage du au senior pour garder de la marge;
+	- prevoi des relectures croisée
+	- 
+
+
+
+	
